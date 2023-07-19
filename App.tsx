@@ -28,18 +28,28 @@
 
 // export default App;
 
-import React from "react";
-import { View, Text, Image , StyleSheet } from "react-native";
+import React,{useState} from "react";
+import { View, Text, Image , StyleSheet, Pressable} from "react-native";
 
 
 
 
 const ImageOption = (props:any)=>{
+  const [pres, setPres] = useState(false);
+
+  if(pres){
+    console.warn(props.id);
+  }
+
   // const {name, imaged} = props;
-  return ( <View style={styles.box}>
-            <Image source={props.imaged} style={styles.images} />  
-            <Text style={{fontSize:20, marginTop:10, color:"red"}}>{props.name}</Text>
-          </View>
+  return ( <Pressable 
+            onPress={()=>setPres(true)} 
+            // style={styles.box}
+            style={[pres ? styles.activeBox : styles.box]}
+            >
+              <Image source={props.imaged} style={styles.images} />  
+              <Text style={{fontSize:20, marginTop:10, color:"red"}}>{props.name}</Text>
+          </Pressable>
         );
 }
 
@@ -51,10 +61,10 @@ const App = () => {
         <Text style={styles.text}>Example on Flexbox.</Text>
       </View>
       <View style={styles.boxWrapper}>
-       <ImageOption name={"lorem"} imaged={require("./assets/images/1.jpg")}/>
-       <ImageOption name={"lorem2"} imaged={require("./assets/images/2.jpg")}/>
-       <ImageOption name={"lorem3"} imaged={require("./assets/images/3.jpg")}/>
-       <ImageOption name={"lorem4"} imaged={require("./assets/images/4.jpg")}/>
+       <ImageOption name={"lorem"}  imaged={require("./assets/images/1.jpg")} id={1}/>
+       <ImageOption name={"lorem2"} imaged={require("./assets/images/2.jpg")} id={2}/>
+       <ImageOption name={"lorem3"} imaged={require("./assets/images/3.jpg")} id={3}/>
+       <ImageOption name={"lorem4"} imaged={require("./assets/images/4.jpg")} id={4}/>
       
         {/* <View style={styles.box}>
           <Image source={require("./assets/images/2.jpg")} style={styles.images} />  
@@ -112,6 +122,18 @@ const styles = StyleSheet.create({
     width:120,
     borderRadius:10,
     resizeMode:"contain"
+  },
+  activeBox:{
+    backgroundColor: "white",
+    height: 250,
+    width: 155,
+    borderWidth: 4,
+    borderColor: "red",
+    borderRadius: 15,
+    margin: 10,
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center"
   }
 
 });
