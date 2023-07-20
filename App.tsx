@@ -127,13 +127,23 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: 250,
     width: 155,
-    borderWidth: 4,
-    borderColor: "red",
+    borderWidth: 3,
+    borderColor: "grey",
     borderRadius: 15,
     margin: 10,
     display:"flex",
     justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",    
+    
+    // shadowColor: "red",
+    // shadowOpacity: 1,
+    // shadowRadius: 8,
+    // shadowOffset: {
+    //   height: 5,
+    //   width: 5
+    // }
+    elevation: 20,
+    shadowColor: 'red'
   }
 
 });
