@@ -232,11 +232,15 @@ const App = () => {
                 // decrease life if user choses wrong answer
                 // check if life ==0 then display Alert with message game over
                 // Restart game
-                setHeartId(heartId + 1);
-                Alert.alert(`Wrong answer`);
+                // setHeartId(heartId + 1);
+                // Alert.alert(`Wrong answer`);
                 if (heartId == 4) {
+                  // Alert.alert(`Wrong answer`);
                   setIsOverModal(true);
                   setSelectedOption(null);
+                }else{
+                  Alert.alert(`Wrong answer`);
+                  setHeartId(heartId + 1);
                 }
               }
             }
